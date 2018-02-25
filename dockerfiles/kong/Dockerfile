@@ -5,7 +5,7 @@ MAINTAINER Nicolas Carlier <nicolas.carlier@worldline.com>
 ENV KONG_HOME /usr/local/share/lua/5.1/kong
 
 # Install OIDC plugin
-RUN yum install -y git unzip && \
+RUN yum install -y git unzip openssl-devel gcc gcc-c++ make openssl-devel && \
     git clone https://github.com/nokia/kong-oidc.git $KONG_HOME/plugins/kong-oidc && \
     (cd $KONG_HOME/plugins/kong-oidc/ && luarocks make)
 
